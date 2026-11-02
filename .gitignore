@@ -5,3 +5,6 @@ dist
 .DS_Store
 .claude
 *.tsbuildinfo
+
+# Background music is supplied locally; not committed (licensing)
+public/music/*.mp3

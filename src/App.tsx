@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, LazyMotion, MotionConfig, domMax, useReducedMotion } from 'framer-motion';
 import { Footer } from './components/layout/Footer';
 import { Loader } from './components/layout/Loader';
+import { MusicPlayer } from './components/layout/MusicPlayer';
 import { Navbar } from './components/layout/Navbar';
 import { ScrollProgress } from './components/layout/ScrollProgress';
 import { About } from './components/sections/About';
@@ -63,6 +64,7 @@ export default function App() {
           <Contact />
         </main>
         <Footer />
+        <MusicPlayer />
       </MotionConfig>
     </LazyMotion>
   );
