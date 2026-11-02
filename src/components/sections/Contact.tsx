@@ -5,7 +5,7 @@ import { profile } from '../../data/profile';
 import { Ship } from '../illustrations/Ship';
 import { Waves } from '../illustrations/Waves';
 import { Reveal } from '../ui/Reveal';
-import { ContactForm } from './ContactForm';
+import { CaptainContact } from './CaptainContact';
 
 const channels = [
   { label: 'Email', value: profile.email, href: `mailto:${profile.email}`, Icon: Mail },
@@ -117,7 +117,7 @@ export function Contact() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <ContactForm />
+            <CaptainContact />
           </Reveal>
         </div>
       </div>

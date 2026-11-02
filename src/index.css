@@ -139,6 +139,11 @@
 .anim-cloud { animation: cloud-drift var(--dur, 90s) linear infinite; }
 .anim-bob { animation: bob var(--dur, 6s) ease-in-out infinite; transform-origin: 50% 80%; }
 .anim-float { animation: float-soft var(--dur, 7s) ease-in-out infinite; }
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.anim-float-sm { animation: float-subtle var(--dur, 7s) ease-in-out infinite; }
 .anim-twinkle { animation: twinkle var(--dur, 4s) ease-in-out infinite; }
 .anim-sweep { animation: sweep var(--dur, 4s) linear infinite; transform-origin: center; transform-box: fill-box; }
 .anim-glyph { animation: glyph-glow var(--dur, 5s) ease-in-out infinite; }

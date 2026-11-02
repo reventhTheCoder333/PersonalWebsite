@@ -34,6 +34,12 @@ export const profile = {
    */
   photo: '/profile.jpg' as string | null,
   /**
+   * Optional artwork for the figure holding the contact form (transparent PNG/WebP in
+   * /public, ideally 1120×600). Only use art you have the rights to publish. While null,
+   * the original illustrated captain is shown.
+   */
+  contactCaptainArt: null as string | null,
+  /**
    * Decorative "bounty" on the wanted poster. It is the GPA written as a bounty —
    * a playful nod, not a monetary figure or award.
    */
