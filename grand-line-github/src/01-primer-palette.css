@@ -1,0 +1,305 @@
+/* ==========================================================================
+   01 · PRIMER PALETTE — repaint GitHub through its own design tokens
+   --------------------------------------------------------------------------
+   GitHub's UI (both the Rails views and the React apps) reads colours from
+   Primer CSS variables. Remapping them here themes almost every component
+   without touching fragile class names. The repeated attribute selector only
+   raises specificity above GitHub's own theme blocks (light, dark, dimmed,
+   high-contrast, colour-blind), so the Grand Line wins whichever theme the
+   account has selected.
+   ========================================================================== */
+
+html[data-color-mode][data-color-mode][data-color-mode][data-color-mode],
+[data-color-mode][data-color-mode][data-color-mode][data-color-mode][data-color-mode] {
+  color-scheme: dark;
+
+  /* --- Canvas --------------------------------------------------------- */
+  --bgColor-default: var(--gl-ocean);
+  --bgColor-muted: var(--gl-deep);
+  --bgColor-inset: var(--gl-abyss);
+  --bgColor-emphasis: var(--gl-shoal);
+  --bgColor-inverse: var(--gl-parchment);
+  --bgColor-disabled: #0d2232;
+  --bgColor-transparent: transparent;
+  --bgColor-neutral-muted: rgba(232, 214, 173, 0.08);
+  --bgColor-neutral-emphasis: #5a6a72;
+  --bgColor-accent-muted: rgba(79, 179, 176, 0.14);
+  --bgColor-accent-emphasis: var(--gl-tide);
+  --bgColor-success-muted: rgba(87, 184, 148, 0.14);
+  --bgColor-success-emphasis: #2f7d64;
+  --bgColor-open-muted: rgba(87, 184, 148, 0.14);
+  --bgColor-open-emphasis: #2f7d64;
+  --bgColor-attention-muted: rgba(198, 161, 91, 0.16);
+  --bgColor-attention-emphasis: #9c7a36;
+  --bgColor-severe-muted: rgba(217, 121, 65, 0.16);
+  --bgColor-severe-emphasis: #b55e2c;
+  --bgColor-danger-muted: rgba(208, 100, 90, 0.16);
+  --bgColor-danger-emphasis: #a8443b;
+  --bgColor-closed-muted: rgba(208, 100, 90, 0.16);
+  --bgColor-closed-emphasis: #a8443b;
+  --bgColor-done-muted: rgba(198, 161, 91, 0.16);
+  --bgColor-done-emphasis: #9c7a36;
+  --bgColor-sponsors-muted: rgba(217, 121, 65, 0.14);
+  --bgColor-sponsors-emphasis: #b55e2c;
+  --bgColor-upsell-muted: rgba(198, 161, 91, 0.14);
+  --bgColor-upsell-emphasis: #9c7a36;
+  --bgColor-draft-muted: rgba(184, 172, 146, 0.12);
+  --bgColor-draft-emphasis: #5d6670;
+  --card-bgColor: var(--gl-deep);
+  --page-header-bgColor: var(--gl-ocean);
+  --overlay-bgColor: var(--gl-deep);
+  --overlay-borderColor: var(--gl-rope);
+  --overlay-backdrop-bgColor: rgba(4, 18, 30, 0.72);
+  --selection-bgColor: rgba(79, 179, 176, 0.35);
+
+  /* --- Ink ------------------------------------------------------------ */
+  --fgColor-default: var(--gl-ivory);
+  --fgColor-muted: var(--gl-beige);
+  --fgColor-disabled: #6f7a78;
+  --fgColor-onEmphasis: #fbf6ea;
+  --fgColor-onInverse: var(--gl-ink);
+  --fgColor-link: var(--gl-tide-bright);
+  --fgColor-accent: var(--gl-tide-bright);
+  --fgColor-success: var(--gl-kelp);
+  --fgColor-open: var(--gl-kelp);
+  --fgColor-attention: var(--gl-gold-bright);
+  --fgColor-severe: var(--gl-sunset);
+  --fgColor-danger: var(--gl-crimson);
+  --fgColor-closed: var(--gl-crimson);
+  --fgColor-done: var(--gl-gold-bright);
+  --fgColor-sponsors: var(--gl-sunset);
+  --fgColor-upsell: var(--gl-gold-bright);
+  --fgColor-neutral: var(--gl-beige);
+  --fgColor-draft: var(--gl-beige);
+
+  /* --- Borders -------------------------------------------------------- */
+  --borderColor-default: var(--gl-rope);
+  --borderColor-muted: var(--gl-hairline);
+  --borderColor-emphasis: var(--gl-rope-strong);
+  --borderColor-translucent: rgba(198, 161, 91, 0.18);
+  --borderColor-disabled: rgba(232, 214, 173, 0.08);
+  --borderColor-neutral-muted: rgba(232, 214, 173, 0.12);
+  --borderColor-neutral-emphasis: #5a6a72;
+  --borderColor-accent-muted: rgba(79, 179, 176, 0.4);
+  --borderColor-accent-emphasis: var(--gl-tide-bright);
+  --borderColor-success-muted: rgba(87, 184, 148, 0.4);
+  --borderColor-success-emphasis: var(--gl-kelp);
+  --borderColor-open-muted: rgba(87, 184, 148, 0.4);
+  --borderColor-open-emphasis: var(--gl-kelp);
+  --borderColor-attention-muted: rgba(198, 161, 91, 0.4);
+  --borderColor-attention-emphasis: var(--gl-gold);
+  --borderColor-severe-muted: rgba(217, 121, 65, 0.4);
+  --borderColor-severe-emphasis: var(--gl-sunset);
+  --borderColor-danger-muted: rgba(208, 100, 90, 0.4);
+  --borderColor-danger-emphasis: var(--gl-crimson);
+  --borderColor-closed-muted: rgba(208, 100, 90, 0.4);
+  --borderColor-closed-emphasis: var(--gl-crimson);
+  --borderColor-done-muted: rgba(198, 161, 91, 0.4);
+  --borderColor-done-emphasis: var(--gl-gold);
+  --borderColor-sponsors-muted: rgba(217, 121, 65, 0.4);
+  --borderColor-sponsors-emphasis: var(--gl-sunset);
+  --borderColor-upsell-muted: rgba(198, 161, 91, 0.4);
+  --borderColor-upsell-emphasis: var(--gl-gold);
+  --borderColor-draft-muted: rgba(184, 172, 146, 0.3);
+  --borderColor-draft-emphasis: #5d6670;
+  --focus-outlineColor: var(--gl-gold-bright);
+  --focus-outline-color: var(--gl-gold-bright);
+
+  /* --- Header --------------------------------------------------------- */
+  --header-bgColor: var(--gl-abyss);
+  --header-borderColor-divider: var(--gl-rope);
+  --header-fgColor-default: var(--gl-ivory);
+  --header-fgColor-logo: var(--gl-gold);
+  --headerSearch-bgColor: var(--gl-ocean);
+  --headerSearch-borderColor: var(--gl-rope);
+
+  /* --- Buttons -------------------------------------------------------- */
+  --button-default-bgColor-rest: var(--gl-deep);
+  --button-default-bgColor-hover: var(--gl-reef);
+  --button-default-bgColor-active: var(--gl-shoal);
+  --button-default-bgColor-selected: var(--gl-shoal);
+  --button-default-bgColor-disabled: #0d2232;
+  --button-default-borderColor-rest: var(--gl-rope);
+  --button-default-borderColor-hover: var(--gl-rope-strong);
+  --button-default-borderColor-active: var(--gl-gold);
+  --button-default-borderColor-disabled: var(--gl-hairline);
+  --button-default-fgColor-rest: var(--gl-ivory);
+  --button-default-fgColor-disabled: #6f7a78;
+  --button-default-shadow-resting: none;
+
+  --button-primary-bgColor-rest: #a8803c;
+  --button-primary-bgColor-hover: #b88d45;
+  --button-primary-bgColor-active: #96712f;
+  --button-primary-bgColor-disabled: rgba(198, 161, 91, 0.35);
+  --button-primary-borderColor-rest: rgba(232, 214, 173, 0.25);
+  --button-primary-borderColor-hover: rgba(232, 214, 173, 0.4);
+  --button-primary-borderColor-active: rgba(232, 214, 173, 0.4);
+  --button-primary-borderColor-disabled: transparent;
+  --button-primary-fgColor-rest: #1a1206;
+  --button-primary-fgColor-disabled: rgba(26, 18, 6, 0.6);
+  --button-primary-iconColor-rest: #1a1206;
+  --button-primary-iconColor-disabled: rgba(26, 18, 6, 0.5);
+  --buttonCounter-primary-bgColor-rest: rgba(26, 18, 6, 0.18);
+
+  --button-invisible-bgColor-hover: rgba(198, 161, 91, 0.1);
+  --button-invisible-bgColor-active: rgba(198, 161, 91, 0.16);
+  --button-invisible-fgColor-rest: var(--gl-ivory);
+  --button-invisible-fgColor-hover: var(--gl-gold-bright);
+  --button-invisible-iconColor-rest: var(--gl-beige);
+  --button-invisible-iconColor-hover: var(--gl-gold-bright);
+
+  --button-outline-fgColor-rest: var(--gl-tide-bright);
+  --button-outline-bgColor-hover: var(--gl-tide);
+  --button-outline-fgColor-hover: var(--gl-ivory);
+  --button-outline-borderColor-hover: var(--gl-tide-bright);
+
+  --button-danger-fgColor-rest: var(--gl-crimson);
+  --button-danger-iconColor-rest: var(--gl-crimson);
+  --button-danger-bgColor-rest: var(--gl-deep);
+  --button-danger-bgColor-hover: #a8443b;
+  --button-danger-fgColor-hover: #fbf6ea;
+  --button-danger-iconColor-hover: #fbf6ea;
+
+  --button-star-iconColor: var(--gl-gold-bright);
+  --buttonCounter-default-bgColor-rest: rgba(198, 161, 91, 0.14);
+
+  /* --- Controls ------------------------------------------------------- */
+  --control-bgColor-rest: var(--gl-abyss);
+  --control-bgColor-hover: var(--gl-deep);
+  --control-bgColor-active: var(--gl-reef);
+  --control-bgColor-selected: var(--gl-reef);
+  --control-bgColor-disabled: #0d2232;
+  --control-borderColor-rest: var(--gl-rope);
+  --control-borderColor-emphasis: var(--gl-rope-strong);
+  --control-borderColor-selected: var(--gl-gold);
+  --control-fgColor-rest: var(--gl-ivory);
+  --control-fgColor-placeholder: #8a8472;
+  --control-iconColor-rest: var(--gl-beige);
+  --control-checked-bgColor-rest: var(--gl-tide);
+  --control-checked-bgColor-hover: #227a86;
+  --control-checked-bgColor-active: #227a86;
+  --control-checked-borderColor-rest: var(--gl-tide);
+  --control-transparent-bgColor-hover: rgba(198, 161, 91, 0.1);
+  --control-transparent-bgColor-active: rgba(198, 161, 91, 0.16);
+  --control-transparent-bgColor-selected: rgba(198, 161, 91, 0.12);
+  --controlTrack-bgColor-rest: var(--gl-reef);
+  --controlKnob-bgColor-rest: var(--gl-parchment);
+  --controlKnob-bgColor-checked: var(--gl-parchment);
+
+  /* --- Navigation ----------------------------------------------------- */
+  --underlineNav-borderColor-active: var(--gl-gold);
+  --underlineNav-borderColor-hover: var(--gl-rope-strong);
+  --underlineNav-iconColor-rest: var(--gl-beige);
+  --sideNav-bgColor-selected: var(--gl-reef);
+
+  /* --- Small parts ---------------------------------------------------- */
+  --counter-bgColor-muted: rgba(198, 161, 91, 0.16);
+  --counter-bgColor-emphasis: var(--gl-gold);
+  --counter-borderColor: transparent;
+  --label-gray-fgColor-rest: var(--gl-beige);
+  --topicTag-borderColor: transparent;
+  --timelineBadge-bgColor: var(--gl-reef);
+  --tooltip-bgColor: var(--gl-parchment);
+  --tooltip-fgColor: var(--gl-ink);
+  --avatar-bgColor: var(--gl-deep);
+  --avatar-borderColor: var(--gl-rope);
+  --avatar-shadow: 0 0 0 1px var(--gl-rope);
+  --shadow-resting-small: 0 1px 0 rgba(0, 0, 0, 0.5);
+  --shadow-floating-small: 0 0 0 1px var(--gl-rope), 0 8px 24px rgba(1, 8, 14, 0.7);
+  --shadow-floating-medium: 0 0 0 1px var(--gl-rope), 0 12px 32px rgba(1, 8, 14, 0.75);
+  --shadow-floating-large: 0 0 0 1px var(--gl-rope), 0 24px 48px rgba(1, 8, 14, 0.8);
+  --shadow-floating-xlarge: 0 0 0 1px var(--gl-rope), 0 32px 64px rgba(1, 8, 14, 0.85);
+
+  /* --- Contribution graph: open sea → turquoise shoals → gold landfall -- */
+  --contribution-default-bgColor-0: rgba(27, 101, 112, 0.14);
+  --contribution-default-bgColor-1: #155a63;
+  --contribution-default-bgColor-2: #1f8a8a;
+  --contribution-default-bgColor-3: #6fb39a;
+  --contribution-default-bgColor-4: var(--gl-gold);
+  --contribution-default-borderColor-0: rgba(198, 161, 91, 0.08);
+  --contribution-default-borderColor-1: rgba(232, 214, 173, 0.06);
+  --contribution-default-borderColor-2: rgba(232, 214, 173, 0.08);
+  --contribution-default-borderColor-3: rgba(232, 214, 173, 0.1);
+  --contribution-default-borderColor-4: rgba(255, 240, 200, 0.3);
+  --contribution-halloween-bgColor-1: #155a63;
+  --contribution-halloween-bgColor-2: #1f8a8a;
+  --contribution-halloween-bgColor-3: #c88a46;
+  --contribution-halloween-bgColor-4: var(--gl-sunset);
+  --contribution-winter-bgColor-1: #155a63;
+  --contribution-winter-bgColor-2: #1f8a8a;
+  --contribution-winter-bgColor-3: #6fb39a;
+  --contribution-winter-bgColor-4: var(--gl-parchment);
+
+  /* --- Code: the Poneglyph palette ----------------------------------- */
+  --color-prettylights-syntax-comment: #7f8f8c;
+  --color-prettylights-syntax-constant: #e0a15b;
+  --color-prettylights-syntax-constant-other-reference-link: #8fd0c6;
+  --color-prettylights-syntax-entity: #e8c77f;
+  --color-prettylights-syntax-storage-modifier-import: var(--gl-ivory);
+  --color-prettylights-syntax-entity-tag: #7fc8a8;
+  --color-prettylights-syntax-keyword: #e48b62;
+  --color-prettylights-syntax-string: #9fd3c7;
+  --color-prettylights-syntax-variable: #f0b072;
+  --color-prettylights-syntax-brackethighlighter-unmatched: var(--gl-crimson);
+  --color-prettylights-syntax-brackethighlighter-angle: var(--gl-beige);
+  --color-prettylights-syntax-invalid-illegal-text: #fbf6ea;
+  --color-prettylights-syntax-invalid-illegal-bg: #8e2f2a;
+  --color-prettylights-syntax-carriage-return-text: #fbf6ea;
+  --color-prettylights-syntax-carriage-return-bg: #a8443b;
+  --color-prettylights-syntax-string-regexp: #7fc8a8;
+  --color-prettylights-syntax-markup-list: #e8c77f;
+  --color-prettylights-syntax-markup-heading: #8fd0c6;
+  --color-prettylights-syntax-markup-italic: var(--gl-ivory);
+  --color-prettylights-syntax-markup-bold: var(--gl-ivory);
+  --color-prettylights-syntax-markup-deleted-text: #ffd2c9;
+  --color-prettylights-syntax-markup-deleted-bg: rgba(168, 68, 59, 0.35);
+  --color-prettylights-syntax-markup-inserted-text: #d3f2e4;
+  --color-prettylights-syntax-markup-inserted-bg: rgba(47, 125, 100, 0.35);
+  --color-prettylights-syntax-markup-changed-text: #ffe2c2;
+  --color-prettylights-syntax-markup-changed-bg: rgba(181, 94, 44, 0.35);
+  --color-prettylights-syntax-markup-ignored-text: var(--gl-ivory);
+  --color-prettylights-syntax-markup-ignored-bg: var(--gl-tide);
+  --color-prettylights-syntax-meta-diff-range: #c79ad6;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #5a6a72;
+
+  --codeMirror-bgColor: var(--gl-abyss);
+  --codeMirror-fgColor: var(--gl-ivory);
+  --codeMirror-gutters-bgColor: var(--gl-abyss);
+  --codeMirror-lines-bgColor: var(--gl-abyss);
+  --codeMirror-lineNumber-fgColor: rgba(198, 161, 91, 0.6);
+  --codeMirror-cursor-fgColor: var(--gl-gold-bright);
+  --codeMirror-selection-bgColor: rgba(79, 179, 176, 0.3);
+  --codeMirror-activeline-bgColor: rgba(198, 161, 91, 0.06);
+  --codeMirror-matchingBracket-fgColor: var(--gl-gold-bright);
+  --codeMirror-syntax-fgColor-comment: #7f8f8c;
+  --codeMirror-syntax-fgColor-constant: #e0a15b;
+  --codeMirror-syntax-fgColor-entity: #e8c77f;
+  --codeMirror-syntax-fgColor-keyword: #e48b62;
+  --codeMirror-syntax-fgColor-storage: #e48b62;
+  --codeMirror-syntax-fgColor-string: #9fd3c7;
+  --codeMirror-syntax-fgColor-support: #8fd0c6;
+  --codeMirror-syntax-fgColor-variable: #f0b072;
+
+  /* --- Diffs: keep add/remove semantics, tinted for the sea ----------- */
+  --diffBlob-additionLine-bgColor: rgba(47, 125, 100, 0.16);
+  --diffBlob-additionLine-fgColor: var(--gl-ivory);
+  --diffBlob-additionNum-bgColor: rgba(47, 125, 100, 0.3);
+  --diffBlob-additionNum-fgColor: var(--gl-ivory);
+  --diffBlob-additionWord-bgColor: rgba(87, 184, 148, 0.38);
+  --diffBlob-additionWord-fgColor: #fbf6ea;
+  --diffBlob-deletionLine-bgColor: rgba(168, 68, 59, 0.16);
+  --diffBlob-deletionLine-fgColor: var(--gl-ivory);
+  --diffBlob-deletionNum-bgColor: rgba(168, 68, 59, 0.3);
+  --diffBlob-deletionNum-fgColor: var(--gl-ivory);
+  --diffBlob-deletionWord-bgColor: rgba(208, 100, 90, 0.4);
+  --diffBlob-deletionWord-fgColor: #fbf6ea;
+  --diffBlob-hunkLine-bgColor: rgba(27, 101, 112, 0.22);
+  --diffBlob-hunkLine-fgColor: var(--gl-beige);
+  --diffBlob-hunkNum-bgColor-rest: rgba(27, 101, 112, 0.35);
+  --diffBlob-hunkNum-bgColor-hover: var(--gl-tide);
+  --diffBlob-hunkNum-fgColor-rest: var(--gl-beige);
+  --diffBlob-hunkNum-fgColor-hover: var(--gl-ivory);
+  --diffBlob-emptyLine-bgColor: var(--gl-abyss);
+  --diffBlob-emptyNum-bgColor: var(--gl-abyss);
+  --diffBlob-expander-iconColor: var(--gl-beige);
+}

@@ -56,6 +56,10 @@ export function Island({ theme, accent, className = '' }: IslandProps) {
       {theme === 'sentry' && <SentryLandmark accent={accent} />}
       {theme === 'fold' && <FoldLandmark accent={accent} />}
       {theme === 'medpred' && <MedLandmark accent={accent} />}
+      {theme === 'lumi' && <LumiLandmark accent={accent} />}
+      {theme === 'incuria' && <IncuriaLandmark accent={accent} />}
+      {theme === 'spam' && <SpamLandmark accent={accent} />}
+      {theme === 'cnn' && <CnnLandmark accent={accent} />}
     </svg>
   );
 }
@@ -180,6 +184,157 @@ function MedLandmark({ accent }: { accent: string }) {
           <rect key={i} x={x} y={y} width={w} height="5" rx="2.5" className={i === 3 ? 'anim-twinkle' : undefined} />
         ))}
       </g>
+    </g>
+  );
+}
+
+function LumiLandmark({ accent }: { accent: string }) {
+  return (
+    <g>
+      {/* Lighthouse with a sweeping beam */}
+      <g transform="translate(200 62)">
+        <g className="anim-sweep" style={{ ['--dur' as string]: '9s' }}>
+          <circle r="150" fill="transparent" />
+          <path d="M0 0 L150 -26 L150 26Z" fill={accent} opacity="0.18" />
+        </g>
+      </g>
+      <path d="M190 130 L194 70 L206 70 L210 130Z" fill="#e9e1cf" />
+      <path d="M192 112 h16 M193 94 h14" stroke="#b8392e" strokeWidth="5" />
+      <rect x="191" y="56" width="18" height="14" rx="2" fill="#1d2d44" stroke={accent} />
+      <circle cx="200" cy="62" r="5" fill="#fff6d8" className="anim-twinkle" style={{ ['--dur' as string]: '2.4s' }} />
+      <path d="M188 56 L200 46 L212 56Z" fill="#2a3a55" />
+      {/* Voice arcs */}
+      <g fill="none" stroke={accent} strokeWidth="1.6" strokeLinecap="round" opacity="0.8">
+        <path d="M86 70 a14 14 0 0 1 0 24" />
+        <path d="M94 62 a24 24 0 0 1 0 40" opacity="0.6" />
+        <path d="M102 54 a34 34 0 0 1 0 56" opacity="0.35" />
+      </g>
+      <circle cx="78" cy="82" r="5" fill={accent} />
+      {/* Storybook stars */}
+      <g fill="#ecca82">
+        <path d="M300 40 l3 7 7 1 -5 5 1 7 -6 -3 -6 3 1 -7 -5 -5 7 -1Z" className="anim-twinkle" />
+        <path d="M330 86 l2 4 4 1 -3 3 1 4 -4 -2 -4 2 1 -4 -3 -3 4 -1Z" className="anim-twinkle" style={{ ['--dur' as string]: '5s' }} />
+      </g>
+    </g>
+  );
+}
+
+function IncuriaLandmark({ accent }: { accent: string }) {
+  const envelopes = [
+    [70, 46, -8, 3.5],
+    [110, 82, 6, 4.5],
+    [290, 40, 10, 5],
+    [318, 90, -6, 4],
+  ];
+  return (
+    <g>
+      {/* Scriptorium tower */}
+      <rect x="182" y="84" width="36" height="46" fill="#3a3550" stroke={accent} strokeWidth="1" />
+      <path d="M176 86 L200 62 L224 86Z" fill="#2c4a3a" stroke={accent} strokeWidth="1" />
+      <path d="M194 130 v-16 a6 6 0 0 1 12 0 v16Z" fill="#1d2d44" />
+      <rect x="190" y="94" width="8" height="8" fill="#ecca82" className="anim-twinkle" />
+      <rect x="202" y="94" width="8" height="8" fill="#ecca82" className="anim-twinkle" style={{ ['--dur' as string]: '5s' }} />
+      {/* Quill */}
+      <path d="M232 60 Q250 30 262 26 Q252 44 238 64Z" fill="#f1e4c6" opacity="0.9" />
+      <line x1="238" y1="64" x2="230" y2="76" stroke="#f1e4c6" strokeWidth="1.2" />
+      {/* Floating envelopes */}
+      {envelopes.map(([x, y, r, d], i) => (
+        <g key={i} transform={`translate(${x} ${y}) rotate(${r})`}>
+          <g className="anim-float" style={{ ['--dur' as string]: `${d}s` }}>
+            <rect x="-14" y="-9" width="28" height="18" rx="2" fill="#f1e4c6" opacity="0.92" />
+            <path d="M-14 -9 L0 2 L14 -9" fill="none" stroke={accent} strokeWidth="1.4" />
+          </g>
+        </g>
+      ))}
+      {/* Draft lines */}
+      <g stroke={accent} strokeWidth="2" strokeLinecap="round" strokeDasharray="4 5" className="anim-dash" opacity="0.6">
+        <path d="M128 72 Q160 60 182 92" fill="none" />
+        <path d="M218 92 Q250 70 276 50" fill="none" />
+      </g>
+    </g>
+  );
+}
+
+function SpamLandmark({ accent }: { accent: string }) {
+  return (
+    <g>
+      {/* Filter funnel */}
+      <path d="M160 52 H240 L212 92 V120 H188 V92Z" fill="#2e2a40" stroke={accent} strokeWidth="1.2" />
+      <g stroke={accent} strokeOpacity="0.5" strokeWidth="0.8">
+        <line x1="170" y1="62" x2="230" y2="62" />
+        <line x1="180" y1="74" x2="220" y2="74" />
+      </g>
+      {/* Incoming messages */}
+      <g fill="#f1e4c6" opacity="0.85">
+        <rect x="120" y="30" width="20" height="13" rx="2" className="anim-twinkle" />
+        <rect x="150" y="18" width="20" height="13" rx="2" />
+        <rect x="236" y="24" width="20" height="13" rx="2" className="anim-twinkle" style={{ ['--dur' as string]: '5s' }} />
+      </g>
+      {/* Caught spam */}
+      <g transform="translate(296 70)">
+        <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#5a2a3a" stroke={accent} />
+        <path d="M-5 -4 L5 4 M5 -4 L-5 4" stroke={accent} strokeWidth="2" strokeLinecap="round" />
+      </g>
+      <g transform="translate(330 98)">
+        <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#5a2a3a" stroke={accent} />
+        <path d="M-5 -4 L5 4 M5 -4 L-5 4" stroke={accent} strokeWidth="2" strokeLinecap="round" />
+      </g>
+      {/* Legitimate mail passes */}
+      <g transform="translate(96 96)">
+        <rect x="-12" y="-8" width="24" height="16" rx="2" fill="#f1e4c6" />
+        <path d="M-5 0 L-1 4 L6 -4" stroke="#2f6b4f" strokeWidth="2" fill="none" strokeLinecap="round" />
+      </g>
+      <g stroke={accent} strokeWidth="1.4" fill="none" strokeDasharray="3 5" className="anim-dash" opacity="0.6">
+        <path d="M240 60 Q272 58 284 66" />
+        <path d="M160 60 Q120 70 108 88" />
+      </g>
+    </g>
+  );
+}
+
+function CnnLandmark({ accent }: { accent: string }) {
+  // Feature maps shrinking through the network, drawn as skewed planes.
+  const layers = [
+    { x: 92, w: 40, h: 64 },
+    { x: 148, w: 32, h: 52 },
+    { x: 196, w: 24, h: 40 },
+    { x: 236, w: 16, h: 28 },
+  ];
+  const mid = 70;
+  return (
+    <g>
+      {layers.map((l, i) => (
+        <g key={i}>
+          {[0, 5, 10].map((o) => (
+            <path
+              key={o}
+              d={`M${l.x + o} ${mid - l.h / 2 - o * 0.4} l${l.w / 2} -10 v${l.h} l-${l.w / 2} 10Z`}
+              fill="#1b2a52"
+              stroke={accent}
+              strokeOpacity={0.4 + o * 0.04}
+              strokeWidth="1"
+            />
+          ))}
+        </g>
+      ))}
+      <g stroke={accent} strokeWidth="0.8" opacity="0.5" strokeDasharray="2 3">
+        <line x1="118" y1="60" x2="148" y2="62" />
+        <line x1="170" y1="62" x2="196" y2="64" />
+        <line x1="214" y1="64" x2="236" y2="66" />
+      </g>
+      {/* Output nodes */}
+      <g fill={accent}>
+        {[46, 60, 74, 88].map((y, i) => (
+          <circle key={y} cx="292" cy={y} r="4" opacity={i === 1 ? 1 : 0.45} className={i === 1 ? 'anim-twinkle' : undefined} />
+        ))}
+      </g>
+      <g stroke={accent} strokeWidth="0.6" opacity="0.4">
+        {[46, 60, 74, 88].map((y) => (
+          <line key={y} x1="262" y1="66" x2="288" y2={y} />
+        ))}
+      </g>
+      {/* Kernel square sliding over the first map */}
+      <rect x="100" y="44" width="12" height="12" fill="none" stroke="#ecca82" strokeWidth="1.4" className="anim-float" style={{ ['--dur' as string]: '3s' }} />
     </g>
   );
 }

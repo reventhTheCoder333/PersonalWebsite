@@ -1,0 +1,136 @@
+/* ==========================================================================
+   02 · BASE — the sea itself
+   ========================================================================== */
+
+body {
+  background-color: var(--gl-ocean) !important;
+  background-image:
+    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(27, 101, 112, 0.28), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 100% 110%, rgba(217, 121, 65, 0.07), transparent 60%),
+    url(svg:chart-pattern) !important;
+  background-attachment: fixed !important;
+  background-size: auto, auto, 480px 480px !important;
+}
+
+/* Page wrappers that paint their own flat background would hide the chart */
+.application-main,
+.application-main > main,
+[data-turbo-body] > .logged-in,
+.page-responsive .Layout,
+.prc-PageLayout-PageLayoutRoot,
+[class*="prc-PageLayout-PageLayoutRoot"] {
+  background-color: transparent !important;
+}
+
+::selection {
+  background: rgba(79, 179, 176, 0.38);
+  color: #fbf6ea;
+}
+
+/* Scrollbars — thin rope on dark water */
+* {
+  scrollbar-color: rgba(198, 161, 91, 0.35) transparent;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(198, 161, 91, 0.28);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background-color: rgba(198, 161, 91, 0.5); }
+
+/* Display type: serif for page titles and section headings only.
+   Body copy keeps GitHub's sans stack for readability. */
+.vcard-fullname,
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+#repo-title-component strong,
+[data-testid="repo-name-wrapper"] strong,
+[data-testid="repo-name-link"],
+.gh-header-title,
+[data-testid="issue-title"],
+[data-component="PH_Title"],
+.js-yearly-contributions h2,
+.Subhead-heading,
+.h2.mb-1,
+h2.f4.mb-2,
+h2.h4 {
+  font-family: var(--gl-font-display) !important;
+  letter-spacing: 0.01em;
+}
+
+/* Links glide to gold */
+a:not([class*="Button"]):not(.btn):not([data-component="Button"]) {
+  transition: color var(--gl-fast) var(--gl-ease);
+}
+a.Link--primary:hover,
+a.Link--secondary:hover,
+.Link--primary:hover,
+.Link--secondary:hover,
+.Link--muted:hover {
+  color: var(--gl-gold-bright) !important;
+}
+
+/* Keyboard focus: a crisp gold ring (never removed) */
+:focus-visible {
+  outline-color: var(--gl-gold-bright) !important;
+}
+
+/* Page-load bar: a gold line drawn across the horizon */
+.progress-pjax-loader .Progress-item,
+.turbo-progress-bar {
+  background: linear-gradient(90deg, var(--gl-tide), var(--gl-gold), var(--gl-sunset)) !important;
+  height: 2px !important;
+  box-shadow: 0 0 10px rgba(198, 161, 91, 0.6);
+}
+
+/* Compass loading indicators — Primer spinners keep their spin, swap the art */
+svg[data-component="Spinner"],
+svg[class*="prc-Spinner"],
+.octicon.anim-rotate,
+svg.anim-rotate {
+  background: url(svg:compass) center / contain no-repeat;
+  animation: gl-compass 1.6s var(--gl-ease) infinite !important;
+}
+svg[data-component="Spinner"] > *,
+svg[class*="prc-Spinner"] > *,
+svg.anim-rotate > * {
+  opacity: 0 !important;
+}
+@keyframes gl-compass {
+  0% { transform: rotate(-25deg); }
+  45% { transform: rotate(215deg); }
+  70% { transform: rotate(170deg); }
+  100% { transform: rotate(335deg); }
+}
+
+/* Skeleton loaders shimmer like light on water */
+[class*="prc-Skeleton-SkeletonBox"],
+.Skeleton {
+  background-color: rgba(27, 101, 112, 0.22) !important;
+}
+
+/* Horizontal rules become a wave line */
+.markdown-body hr {
+  height: 8px !important;
+  background: url(svg:wave) center / 120px 8px repeat-x !important;
+  border: 0 !important;
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  svg[data-component="Spinner"],
+  svg[class*="prc-Spinner"],
+  svg.anim-rotate {
+    animation: gl-compass 2.4s linear infinite !important;
+  }
+}

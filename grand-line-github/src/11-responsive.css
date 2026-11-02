@@ -1,0 +1,44 @@
+/* ==========================================================================
+   11 · RESPONSIVE — calmer seas on small screens
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+  /* The banner shrinks and the poster frame is skipped (avatar sits inline) */
+  .page-profile .application-main > main::before {
+    height: 96px;
+  }
+  .page-profile .application-main > main::after {
+    top: 14px;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+  }
+  #repository-container-header {
+    background-size: 96px auto, auto !important;
+    background-position: right 8px top 8px, 0 0 !important;
+  }
+  /* Watermarks off: small cards need the space */
+  .pinned-item-list-item .Box,
+  .pinned-item-list-item > div {
+    background-size: 72px auto, auto !important;
+  }
+}
+
+@media (max-width: 543.98px) {
+  .page-profile .application-main > main::after {
+    content: "THE GRAND LINE";
+  }
+  body {
+    background-size: auto, auto, 320px 320px !important;
+  }
+}
+
+/* Print: drop the decoration entirely */
+@media print {
+  body {
+    background: #fff !important;
+  }
+  .page-profile .application-main > main::before,
+  .page-profile .application-main > main::after {
+    display: none !important;
+  }
+}

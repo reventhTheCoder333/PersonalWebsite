@@ -1,0 +1,185 @@
+/* ==========================================================================
+   09 · ISSUES & PULL REQUESTS — bounties and boarding parties
+   State colours keep their meaning: open = kelp green, merged/done = gold,
+   closed = crimson, draft = slate. Icons and text labels are never hidden.
+   ========================================================================== */
+
+/* --- List rows ---------------------------------------------------------- */
+.js-issue-row,
+[data-testid="list-view-item"],
+[data-testid="issue-pr-title-link"] {
+  transition: background-color var(--gl-fast);
+}
+.js-issue-row:hover,
+[data-testid="list-view-item"]:hover {
+  background: linear-gradient(90deg, rgba(198, 161, 91, 0.06), transparent 70%) !important;
+}
+.js-issue-row .Link--primary,
+.js-navigation-open.Link--primary,
+[data-testid="issue-pr-title-link"],
+a[data-testid="listitem-title-link"] {
+  color: var(--gl-ivory) !important;
+  font-weight: 600;
+}
+.js-issue-row .Link--primary:hover,
+[data-testid="issue-pr-title-link"]:hover,
+a[data-testid="listitem-title-link"]:hover {
+  color: var(--gl-gold-bright) !important;
+}
+/* Filter bar & tabs above lists */
+.table-list-header,
+#js-issues-toolbar,
+[data-testid="list-view-header"],
+[data-testid="list-view-metadata"] {
+  background: linear-gradient(90deg, rgba(198, 161, 91, 0.09), rgba(27, 101, 112, 0.08)) !important;
+  border-color: var(--gl-rope) !important;
+}
+
+/* --- State badges ------------------------------------------------------- */
+.State--open,
+.State--green,
+[data-status="open"],
+[class*="StateLabel"][data-status="pullOpened"],
+[class*="StateLabel"][data-status="issueOpened"] {
+  background-color: #2f7d64 !important;
+  color: #f1fbf6 !important;
+}
+.State--merged,
+.State--purple,
+[class*="StateLabel"][data-status="pullMerged"],
+[class*="StateLabel"][data-status="issueClosed"] {
+  background: linear-gradient(180deg, #c49a50, #9c7a36) !important;
+  color: #1a1206 !important;
+}
+.State--closed,
+.State--red,
+[class*="StateLabel"][data-status="pullClosed"],
+[class*="StateLabel"][data-status="issueClosedNotPlanned"] {
+  background-color: #a8443b !important;
+  color: #fff3ef !important;
+}
+.State--draft,
+[class*="StateLabel"][data-status="draft"] {
+  background-color: #5d6670 !important;
+  color: var(--gl-ivory) !important;
+}
+.State .octicon,
+[class*="StateLabel"] svg {
+  color: inherit !important;
+}
+/* Merged icon in lists */
+.octicon-git-merge.color-fg-done,
+.octicon-git-merge.merged {
+  color: var(--gl-gold-bright) !important;
+}
+
+/* --- Issue / PR page header -------------------------------------------- */
+.gh-header-title .js-issue-title,
+.gh-header-title .markdown-title,
+[data-testid="issue-title"],
+bdi.js-issue-title {
+  color: var(--gl-parchment) !important;
+  font-family: var(--gl-font-display) !important;
+}
+.gh-header-number,
+[data-testid="issue-header"] span[class*="number"] {
+  color: var(--gl-gold) !important;
+}
+.gh-header-sticky.is-stuck,
+.gh-header-sticky .sticky-content {
+  background: rgba(4, 18, 30, 0.92) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--gl-rope) !important;
+}
+
+/* --- Comments: letters in the ship's correspondence --------------------- */
+.timeline-comment,
+.TimelineItem .timeline-comment-group .timeline-comment,
+[data-testid="comment-viewer-outer-box"],
+.react-issue-comment,
+.review-comment {
+  border-color: var(--gl-rope) !important;
+  border-radius: var(--gl-radius) !important;
+  background: rgba(11, 38, 56, 0.7) !important;
+}
+.timeline-comment-header,
+[data-testid="comment-header"] {
+  background: linear-gradient(90deg, rgba(198, 161, 91, 0.1), rgba(27, 101, 112, 0.06)) !important;
+  border-color: var(--gl-rope) !important;
+}
+/* The author's own comments get a faint gold seal */
+.timeline-comment.current-user,
+.timeline-comment--caret.current-user {
+  border-color: var(--gl-rope-strong) !important;
+}
+.timeline-comment--caret::after,
+.timeline-comment--caret::before {
+  border-right-color: var(--gl-rope) !important;
+}
+
+/* Comment author handle */
+.timeline-comment-header .author,
+[data-testid="avatar-link"],
+a[data-testid="issue-body-header-author"] {
+  color: var(--gl-gold-bright) !important;
+}
+
+/* Reactions */
+.social-reaction-summary-item,
+button[aria-label*="react"][class*="ButtonBase"] {
+  border-color: var(--gl-rope) !important;
+}
+.social-reaction-summary-item.user-has-reacted {
+  background: rgba(198, 161, 91, 0.16) !important;
+  border-color: var(--gl-gold) !important;
+}
+
+/* --- Sidebar (assignees, labels, milestone) ---------------------------- */
+.discussion-sidebar-heading,
+.discussion-sidebar-item .text-bold,
+[data-testid="sidebar-section"] h3 {
+  color: var(--gl-gold) !important;
+  font-family: var(--gl-font-display);
+  letter-spacing: 0.02em;
+}
+.discussion-sidebar-item {
+  border-color: var(--gl-rope) !important;
+}
+
+/* --- Merge box: the harbour gate --------------------------------------- */
+.merge-pr .branch-action,
+.mergeability-details,
+.merge-message,
+[data-testid="mergebox-partial"],
+.branch-action-item {
+  border-color: var(--gl-rope) !important;
+}
+.branch-action-state-clean .branch-action-icon,
+.completeness-indicator-success {
+  background: #2f7d64 !important;
+  color: #f1fbf6 !important;
+}
+.branch-action-state-merged .branch-action-icon {
+  background: linear-gradient(180deg, #c49a50, #9c7a36) !important;
+  color: #1a1206 !important;
+}
+
+/* --- Comment editor: keep it calm and readable ------------------------- */
+.CommentBox,
+.CommentBox-container,
+[class*="MarkdownEditor"],
+.comment-form-textarea,
+textarea.js-comment-field {
+  border-color: var(--gl-rope) !important;
+}
+.comment-form-textarea:focus,
+textarea.js-comment-field:focus {
+  border-color: var(--gl-gold) !important;
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.16) !important;
+}
+
+/* Labels on issues are user-coloured — leave their hues alone, just round */
+.IssueLabel,
+a.IssueLabel {
+  border-radius: 999px !important;
+}

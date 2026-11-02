@@ -81,20 +81,24 @@ function IslandCard({ project, index, onOpen }: { project: Project; index: numbe
               <MapPin size={14} aria-hidden style={{ color: project.accent }} />
               {project.island.name}
             </div>
-            <span
-              className="absolute right-5 top-5 rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em]"
-              style={{ borderColor: `${project.accent}88`, color: project.accent, background: 'rgba(6,16,31,0.7)' }}
-            >
-              {project.status}
-            </span>
+            {project.status && (
+              <span
+                className="absolute right-5 top-5 rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em]"
+                style={{ borderColor: `${project.accent}88`, color: project.accent, background: 'rgba(6,16,31,0.7)' }}
+              >
+                {project.status}
+              </span>
+            )}
             <span className="absolute bottom-3 right-5 font-display text-5xl font-extrabold text-parchment/10" aria-hidden>
               {String(index + 1).padStart(2, '0')}
             </span>
           </div>
 
           <div className="px-6 pb-7 pt-1 sm:px-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-mist/60">{project.period}</p>
-            <h3 id={`project-${project.id}`} className="mt-2 font-display text-2xl font-bold text-parchment sm:text-[1.7rem]">
+            {project.period && (
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-mist/60">{project.period}</p>
+            )}
+            <h3 id={`project-${project.id}`} className="font-display text-2xl font-bold text-parchment sm:text-[1.7rem]">
               {project.name}
             </h3>
             {project.subtitle && <p className="mt-1 text-sm font-medium text-mist">{project.subtitle}</p>}

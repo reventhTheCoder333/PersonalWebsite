@@ -32,7 +32,7 @@ export const profile = {
    * Profile photo for the wanted poster. Drop an image in /public (e.g. /public/profile.jpg)
    * and set this to '/profile.jpg'. While null, an illustrated placeholder is shown.
    */
-  photo: null as string | null,
+  photo: '/profile.jpg' as string | null,
   /**
    * Decorative "bounty" on the wanted poster. It is the GPA written as a bounty —
    * a playful nod, not a monetary figure or award.

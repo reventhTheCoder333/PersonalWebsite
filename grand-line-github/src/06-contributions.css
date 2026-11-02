@@ -1,0 +1,89 @@
+/* ==========================================================================
+   06 · CONTRIBUTIONS — the journey map
+   Colours come from the --contribution-* tokens in 01. Here we shape the
+   tiles into tiny islands and give the chart a navigator's feel.
+   The underlying data, tooltips and keyboard navigation are untouched.
+   ========================================================================== */
+
+.js-yearly-contributions .js-calendar-graph,
+.js-yearly-contributions .border.rounded-2,
+.js-yearly-contributions .Box {
+  background:
+    url(svg:chart-pattern) center / 240px 240px,
+    linear-gradient(180deg, rgba(27, 101, 112, 0.12), rgba(4, 18, 30, 0.5)) !important;
+  border-color: var(--gl-rope) !important;
+}
+
+/* Caption above the heading */
+.js-yearly-contributions > .position-relative > h2::before {
+  content: "THE JOURNEY  ·  LOG OF THE GRAND LINE";
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--gl-font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gl-gold);
+}
+.js-yearly-contributions > .position-relative > h2 {
+  color: var(--gl-parchment) !important;
+}
+
+/* Tiles */
+.ContributionCalendar-day,
+.ContributionCalendar-day[data-level] {
+  border-radius: 3px !important;
+  cursor: crosshair;
+  transition: outline-color var(--gl-fast), box-shadow var(--gl-fast), filter var(--gl-fast);
+  outline: 1px solid transparent !important;
+  outline-offset: 1px;
+}
+.ContributionCalendar-day[data-level="1"],
+.ContributionCalendar-day[data-level="2"],
+.ContributionCalendar-day[data-level="3"] {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.ContributionCalendar-day[data-level="4"] {
+  box-shadow: inset 0 1px 0 rgba(255, 245, 220, 0.4), 0 0 6px rgba(198, 161, 91, 0.55);
+}
+td.ContributionCalendar-day:hover,
+td.ContributionCalendar-day:focus,
+td.ContributionCalendar-day[aria-selected="true"] {
+  outline-color: var(--gl-gold-bright) !important;
+  filter: brightness(1.25);
+}
+
+/* Month & weekday labels read like chart margins */
+.ContributionCalendar-label {
+  color: var(--gl-beige) !important;
+  font-family: var(--gl-font-display);
+  font-style: italic;
+}
+
+/* Year selector pills */
+.js-year-link,
+.filter-item.js-year-link {
+  border-radius: 999px !important;
+  transition: background var(--gl-fast), color var(--gl-fast) !important;
+}
+.js-year-link.selected,
+.filter-item.js-year-link.selected {
+  background: linear-gradient(180deg, #d2ad65, #a8803c) !important;
+  color: #1a1206 !important;
+}
+
+/* Activity overview radar/axis graph */
+.js-activity-overview-graph-container path,
+.activity-overview-box path {
+  stroke: var(--gl-gold) !important;
+}
+.js-highlight-blob {
+  fill: rgba(198, 161, 91, 0.25) !important;
+  stroke: var(--gl-gold) !important;
+}
+
+/* Contribution activity timeline under the graph */
+.contribution-activity-listing .TimelineItem-badge {
+  background: var(--gl-reef) !important;
+  border: 1px solid var(--gl-rope-strong);
+  color: var(--gl-gold) !important;
+}

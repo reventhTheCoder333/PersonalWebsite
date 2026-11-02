@@ -1,0 +1,273 @@
+/* ==========================================================================
+   07 · REPOSITORY — each repo is an island
+   ========================================================================== */
+
+/* --- Repo header ------------------------------------------------------- */
+#repository-container-header {
+  background:
+    url(svg:island) right 24px top 14px / 150px auto no-repeat,
+    linear-gradient(180deg, rgba(27, 101, 112, 0.14), transparent) !important;
+  border-bottom: 1px solid var(--gl-rope);
+}
+#repo-title-component strong a,
+[data-testid="repo-name-link"],
+#repository-container-header strong[itemprop="name"] a {
+  color: var(--gl-parchment) !important;
+  font-size: 22px;
+  font-weight: 600;
+}
+#repo-title-component strong a:hover,
+[data-testid="repo-name-link"]:hover {
+  color: var(--gl-gold-bright) !important;
+  text-decoration: none !important;
+}
+/* "owner / repo" separator in gold */
+#repo-title-component .mx-1,
+#repository-container-header .mx-1.flex-self-stretch,
+[data-testid="repo-name-wrapper"] span[class*="separator"] {
+  color: var(--gl-gold) !important;
+}
+
+/* --- Branch / ref picker: a pennant ------------------------------------ */
+[data-testid="anchor-button"].overview-ref-selector,
+button[class*="RefSelector"],
+.branch-select-menu .btn,
+#branch-picker-repos-header-ref-selector {
+  border-color: var(--gl-rope-strong) !important;
+  background: rgba(27, 101, 112, 0.18) !important;
+}
+[data-testid="anchor-button"].overview-ref-selector .octicon-git-branch,
+button[class*="RefSelector"] .octicon-git-branch {
+  color: var(--gl-gold) !important;
+}
+
+/* "Code" (clone) button keeps the primary brass styling from 04 */
+
+/* --- File explorer: the island's survey table -------------------------- */
+[data-testid="directory-content"],
+table[aria-labelledby="folders-and-files"],
+.Box:has(> .Box-header .js-details-target),
+.js-navigation-container {
+  border-radius: var(--gl-radius);
+}
+[data-testid="latest-commit-details"],
+.react-directory-commit-message,
+table[aria-labelledby="folders-and-files"] thead tr,
+.Box-header.position-relative {
+  background: linear-gradient(90deg, rgba(198, 161, 91, 0.09), rgba(27, 101, 112, 0.08)) !important;
+}
+.react-directory-row:hover,
+.react-directory-row:hover td {
+  background-color: rgba(198, 161, 91, 0.05) !important;
+}
+.react-directory-row .react-directory-filename-column svg.octicon-file-directory-fill,
+.react-directory-row .icon-directory,
+.octicon-file-directory-fill {
+  color: var(--gl-gold) !important;
+  fill: var(--gl-gold) !important;
+}
+.react-directory-row .react-directory-filename-column svg.octicon-file,
+.octicon-file {
+  color: var(--gl-beige) !important;
+}
+.react-directory-filename-column a,
+.react-directory-truncate a {
+  color: var(--gl-ivory) !important;
+}
+.react-directory-filename-column a:hover {
+  color: var(--gl-gold-bright) !important;
+}
+.react-directory-row td:last-child,
+.react-directory-commit-age {
+  color: var(--gl-beige) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+/* File tree side panel (code view) */
+[aria-label="File Tree Navigation"] [aria-current="true"],
+[aria-label="File Tree Navigation"] [aria-selected="true"],
+nav[aria-label="File Tree Navigation"] li[aria-current="true"] > div {
+  background: rgba(198, 161, 91, 0.12) !important;
+}
+[aria-label="File Tree Navigation"] [aria-current="true"]::after,
+nav[aria-label="File Tree Navigation"] li[aria-current="true"] > div::after {
+  background: var(--gl-gold) !important;
+}
+
+/* --- About sidebar ------------------------------------------------------ */
+.BorderGrid-cell h2,
+.BorderGrid-cell .h4 {
+  font-family: var(--gl-font-display);
+  color: var(--gl-parchment) !important;
+  letter-spacing: 0.02em;
+}
+.BorderGrid,
+.BorderGrid-row,
+.BorderGrid-cell {
+  border-color: var(--gl-rope) !important;
+}
+.BorderGrid-cell .octicon {
+  color: var(--gl-gold) !important;
+}
+
+/* Language bar: a rope of coloured strands */
+.Progress:not(.progress-pjax-loader) {
+  height: 8px !important;
+  border-radius: 999px !important;
+  background: var(--gl-abyss) !important;
+  box-shadow: 0 0 0 1px var(--gl-rope);
+  overflow: hidden;
+}
+.Progress:not(.progress-pjax-loader) .Progress-item {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.BorderGrid-cell .octicon-dot-fill,
+.repo-language-color {
+  box-shadow: 0 0 0 1px rgba(232, 214, 173, 0.35);
+  border-radius: 50%;
+}
+
+/* --- README: the island's chart ----------------------------------------- */
+#readme > .Box-header,
+#readme [class*="prc-UnderlineNav"],
+div:has(> article.markdown-body) > div:first-child[class*="Header"] {
+  background: linear-gradient(90deg, rgba(198, 161, 91, 0.1), transparent) !important;
+}
+.markdown-body {
+  color: var(--gl-ivory);
+}
+.markdown-body h1,
+.markdown-body h2 {
+  color: var(--gl-parchment) !important;
+  border-bottom: 1px solid var(--gl-rope) !important;
+  padding-bottom: 0.3em;
+}
+.markdown-body h1 {
+  background: url(svg:wave) left bottom / 120px 8px repeat-x;
+  border-bottom: 0 !important;
+  padding-bottom: 0.45em;
+}
+.markdown-body h3,
+.markdown-body h4 {
+  color: var(--gl-gold-bright) !important;
+}
+.markdown-body a:not(.anchor):not([class]) {
+  color: var(--gl-tide-bright);
+  text-decoration-color: rgba(79, 179, 176, 0.4);
+  text-underline-offset: 2px;
+}
+.markdown-body a:not(.anchor):not([class]):hover {
+  color: var(--gl-gold-bright);
+  text-decoration-color: var(--gl-gold);
+}
+.markdown-body blockquote {
+  color: var(--gl-beige) !important;
+  border-left: 3px solid var(--gl-gold) !important;
+  background: linear-gradient(90deg, rgba(198, 161, 91, 0.08), transparent 80%);
+  border-radius: 0 6px 6px 0;
+  padding: 0.4em 1em !important;
+  font-style: italic;
+}
+.markdown-body table tr {
+  background-color: transparent !important;
+  border-color: var(--gl-rope) !important;
+}
+.markdown-body table tr:nth-child(2n) {
+  background-color: rgba(27, 101, 112, 0.1) !important;
+}
+.markdown-body table th,
+.markdown-body table td {
+  border-color: var(--gl-rope) !important;
+}
+.markdown-body table th {
+  color: var(--gl-parchment);
+  font-family: var(--gl-font-display);
+}
+.markdown-body code:not(pre code),
+.markdown-body tt {
+  background: rgba(27, 101, 112, 0.24) !important;
+  color: #cfe9e3 !important;
+  border-radius: 4px;
+}
+.markdown-body pre,
+.markdown-body .highlight pre {
+  background:
+    url(svg:poneglyph) right top / 96px 96px,
+    var(--gl-abyss) !important;
+  border: 1px solid var(--gl-rope) !important;
+  border-radius: var(--gl-radius) !important;
+}
+.markdown-body kbd {
+  background: var(--gl-parchment) !important;
+  color: var(--gl-ink) !important;
+  border-color: #b89a5f !important;
+  box-shadow: inset 0 -1px 0 #b89a5f !important;
+}
+/* Alerts / callouts keep their meaning colours */
+.markdown-body .markdown-alert {
+  border-radius: 0 6px 6px 0;
+  background: rgba(11, 38, 56, 0.6);
+}
+
+/* --- Releases / packages / deployments sidebar ------------------------ */
+.Label--success,
+.Label--green {
+  color: var(--gl-kelp) !important;
+  border-color: rgba(87, 184, 148, 0.5) !important;
+}
+
+/* --- Commit history: the ship's log ------------------------------------ */
+[data-testid="commit-row-item"],
+li.Box-row.js-commits-list-item {
+  transition: background-color var(--gl-fast);
+}
+[data-testid="commit-row-item"]:hover,
+li.Box-row.js-commits-list-item:hover {
+  background: linear-gradient(90deg, rgba(198, 161, 91, 0.06), transparent 70%) !important;
+}
+[data-testid="commit-row-item"] h4 a,
+[data-testid="commit-row-item"] [data-testid="listview-item-title-container"] a,
+.js-commits-list-item p.mb-1 a {
+  color: var(--gl-ivory) !important;
+}
+[data-testid="commit-row-item"] h4 a:hover,
+.js-commits-list-item p.mb-1 a:hover {
+  color: var(--gl-gold-bright) !important;
+}
+/* Commit SHAs read as log coordinates */
+a[href*="/commit/"].text-mono,
+[data-testid="commit-row-item"] a[href*="/commit/"][class*="Button"] span,
+.commit .sha,
+.sha-block {
+  font-variant-numeric: tabular-nums;
+  color: var(--gl-gold) !important;
+}
+/* Day groupings in the commit list: "Commits on Oct 12" */
+[data-testid="commit-group-title"],
+.TimelineItem-body > h2.f5,
+.TimelineItem-body h3.f5 {
+  font-family: var(--gl-font-display) !important;
+  color: var(--gl-parchment) !important;
+  letter-spacing: 0.02em;
+}
+/* Timeline spine becomes a dotted voyage route */
+.TimelineItem::before,
+[class*="Timeline-Timeline"] [class*="TimelineItem"]::before {
+  background: none !important;
+  border-left: 2px dashed rgba(198, 161, 91, 0.3);
+  width: 0 !important;
+}
+.TimelineItem-badge,
+[class*="TimelineBadge"] {
+  background: var(--gl-reef) !important;
+  border: 1px solid var(--gl-rope-strong) !important;
+  color: var(--gl-gold) !important;
+}
+.TimelineItem-badge .octicon-git-commit {
+  color: var(--gl-gold) !important;
+}
+
+/* Latest-commit strip on the repo home */
+[data-testid="latest-commit-details"] a[href*="/commit/"] {
+  color: var(--gl-ivory) !important;
+}

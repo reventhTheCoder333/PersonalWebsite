@@ -1,0 +1,146 @@
+/* ==========================================================================
+   03 · HEADER — the navigation deck
+   Covers the signed-in AppHeader, the classic .Header, and the signed-out
+   marketing header (whose CSS-module classes are matched by prefix).
+   ========================================================================== */
+
+.AppHeader,
+.Header,
+header.HeaderMktg,
+header[class*="HeaderMktg"],
+.js-header-wrapper > header {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(27, 101, 112, 0.18), transparent 70%),
+    var(--gl-abyss) !important;
+  border-bottom: 1px solid var(--gl-rope) !important;
+  box-shadow: 0 10px 30px -20px rgba(0, 0, 0, 0.9);
+}
+
+/* A slow gold glint travels the rope line under the header */
+.AppHeader::after,
+.Header::after,
+header.HeaderMktg::after,
+header[class*="HeaderMktg"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--gl-gold-bright) 50%, transparent) no-repeat;
+  background-size: 30% 100%;
+  animation: gl-glint 14s linear infinite;
+  opacity: 0.7;
+}
+@keyframes gl-glint {
+  from { background-position: -40% 0; }
+  to { background-position: 140% 0; }
+}
+
+/* Logo: the GitHub mark in aged gold, with a compass bloom on hover */
+.AppHeader-logo,
+.AppHeader-logo svg,
+.Header-link .octicon-mark-github,
+header[class*="HeaderMktg"] a[class*="logo"] svg,
+.AppHeader a[aria-label="Homepage"] svg {
+  color: var(--gl-gold) !important;
+  fill: var(--gl-gold) !important;
+  transition: filter var(--gl-fast) var(--gl-ease), transform 400ms var(--gl-ease);
+}
+.AppHeader a[aria-label="Homepage"]:hover svg,
+.AppHeader-logo:hover svg,
+header[class*="HeaderMktg"] a[class*="logo"]:hover svg {
+  filter: drop-shadow(0 0 6px rgba(198, 161, 91, 0.6));
+  transform: rotate(-8deg);
+}
+
+/* Context breadcrumbs (owner / repo) in the header */
+.AppHeader-context-item,
+.AppHeader-context-full a,
+.AppHeader-context-compact {
+  color: var(--gl-ivory) !important;
+}
+.AppHeader-context-item:hover,
+.AppHeader-context-full a:hover {
+  background: rgba(198, 161, 91, 0.1) !important;
+  color: var(--gl-gold-bright) !important;
+}
+.AppHeader-context-item-label {
+  font-family: var(--gl-font-display);
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+/* Header icon buttons (inbox, issues, PRs, Copilot, +) */
+.AppHeader .AppHeader-button,
+.AppHeader [data-component="IconButton"],
+.AppHeader-globalBar .Button--secondary {
+  background: transparent !important;
+  border-color: var(--gl-rope) !important;
+  color: var(--gl-beige) !important;
+  transition: color var(--gl-fast), border-color var(--gl-fast), box-shadow var(--gl-fast) !important;
+}
+.AppHeader .AppHeader-button:hover,
+.AppHeader [data-component="IconButton"]:hover,
+.AppHeader-globalBar .Button--secondary:hover {
+  color: var(--gl-gold-bright) !important;
+  border-color: var(--gl-gold) !important;
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.1);
+}
+
+/* The search bar: a spyglass slot */
+.AppHeader-search-whenNarrow,
+.AppHeader-searchButton,
+.header-search-button,
+.AppHeader .search-input,
+.AppHeader-search .FormControl-input-wrap,
+qbsearch-input .header-search-button {
+  background: rgba(7, 27, 43, 0.85) !important;
+  border: 1px solid var(--gl-rope) !important;
+  border-radius: 999px !important;
+  color: var(--gl-beige) !important;
+  transition: border-color var(--gl-fast), box-shadow var(--gl-fast) !important;
+}
+.AppHeader-searchButton:hover,
+.header-search-button:hover,
+qbsearch-input .header-search-button:hover {
+  border-color: var(--gl-gold) !important;
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.12) !important;
+}
+
+/* Local repo / profile tabs under the global bar */
+.AppHeader-localBar {
+  background: transparent !important;
+}
+
+/* Signed-out marketing header links */
+header[class*="HeaderMktg"] nav button,
+header[class*="HeaderMktg"] nav a {
+  color: var(--gl-ivory) !important;
+}
+header[class*="HeaderMktg"] nav button:hover,
+header[class*="HeaderMktg"] nav a:hover {
+  color: var(--gl-gold-bright) !important;
+}
+header[class*="HeaderMktg"] [class*="search"] button,
+header[class*="HeaderMktg"] [class*="Search"] button {
+  background: rgba(7, 27, 43, 0.85) !important;
+  border-color: var(--gl-rope) !important;
+  border-radius: 999px !important;
+}
+
+/* Sign up / primary calls to action in the header */
+header[class*="HeaderMktg"] a[href*="signup"],
+.AppHeader a[href*="signup"] {
+  border-color: var(--gl-gold) !important;
+  color: var(--gl-gold-bright) !important;
+  background: transparent !important;
+}
+
+/* Global side drawer (hamburger menu) */
+.AppHeader-globalBar + * .Overlay,
+nav[aria-label="Global"] {
+  background: var(--gl-deep) !important;
+}

@@ -1,11 +1,12 @@
-export type IslandTheme = 'neural' | 'sentry' | 'fold' | 'medpred';
+export type IslandTheme = 'neural' | 'sentry' | 'fold' | 'medpred' | 'lumi' | 'incuria' | 'spam' | 'cnn';
 
 export type Project = {
   id: string;
   name: string;
   subtitle?: string;
-  period: string;
-  status: 'In progress' | 'Completed';
+  /** Omit when no date range has been confirmed. */
+  period?: string;
+  status?: 'In progress' | 'Completed';
   island: {
     name: string;
     theme: IslandTheme;
@@ -30,6 +31,25 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: 'lumi',
+    name: 'Lumi',
+    subtitle: 'AI Visual Assistant for Blind & Visually Impaired People',
+    island: { name: 'Lantern Isle', theme: 'lumi', coords: '41°N · 12°E' },
+    accent: '#8fc4e8',
+    summary:
+      'An AI visual assistant that helps blind and visually impaired people understand the world around them.',
+    description:
+      'An AI-powered visual assistant designed to support blind and visually impaired individuals through real-time scene understanding, voice interaction, guided tasks, and personalized fairytale experiences.',
+    tech: ['AI', 'Computer Vision', 'Voice Interaction', 'Accessibility'],
+    highlights: [
+      'Real-time scene understanding.',
+      'Voice interaction.',
+      'Guided tasks.',
+      'Personalized fairytale experiences.',
+    ],
+    links: { github: 'https://github.com/reventhTheCoder333/Lumi' },
+  },
+  {
     id: 'neural-decoder',
     name: 'Neural Decoder',
     period: 'Sep 2026 – Present',
@@ -52,7 +72,7 @@ export const projects: Project[] = [
       { label: 'Band-pass', value: '8–30 Hz' },
       { label: 'Classes', value: 'L / R hand' },
     ],
-    links: {},
+    links: { github: 'https://github.com/reventhTheCoder333/Neural-Decoder' },
   },
   {
     id: 'sentry',
@@ -77,7 +97,24 @@ export const projects: Project[] = [
       { label: 'Models', value: '2 independent' },
       { label: 'Mode', value: 'Real-time' },
     ],
-    links: {},
+    links: { github: 'https://github.com/reventhTheCoder333/Threat_Detection_Sentry' },
+  },
+  {
+    id: 'incuria',
+    name: 'Incuria',
+    subtitle: 'AI Email Assistant for Professors',
+    island: { name: 'Scriptorium Cay', theme: 'incuria', coords: '55°N · 03°W' },
+    accent: '#7fbf8a',
+    summary: 'An AI email assistant that helps professors keep up with student communications.',
+    description:
+      'An AI-powered email assistant that helps professors manage student communications, generate context-aware draft responses, and streamline academic email workflows.',
+    tech: ['AI', 'NLP', 'Email Automation'],
+    highlights: [
+      'Helps professors manage student communications.',
+      'Generates context-aware draft responses.',
+      'Streamlines academic email workflows.',
+    ],
+    links: { github: 'https://github.com/reventhTheCoder333/Incuria' },
   },
   {
     id: 'fold',
@@ -106,6 +143,7 @@ export const projects: Project[] = [
   {
     id: 'medpred',
     name: 'MedPred',
+    subtitle: 'Medication Review Condition Predictor',
     period: 'Feb 2026 – Mar 2026',
     status: 'Completed',
     island: { name: 'Remedy Reef', theme: 'medpred', coords: '21°N · 157°W' },
@@ -127,6 +165,36 @@ export const projects: Project[] = [
       heading: 'Categories',
       items: ['Anxiety', 'Depression', 'Acne', 'Pain', 'Birth Control'],
     },
-    links: {},
+    links: { github: 'https://github.com/reventhTheCoder333/Medication-Review-Condition-Predictor' },
+  },
+  {
+    id: 'spamscope',
+    name: 'SpamScope',
+    island: { name: 'Sieve Shoals', theme: 'spam', coords: '12°S · 77°W' },
+    accent: '#d77fa8',
+    summary: 'A machine learning classifier that separates spam from legitimate messages.',
+    description:
+      'A machine learning project focused on identifying and classifying spam messages, distinguishing unwanted communications from legitimate content.',
+    tech: ['Machine Learning', 'Text Classification'],
+    highlights: [
+      'Identifies and classifies spam messages.',
+      'Distinguishes unwanted communications from legitimate content.',
+    ],
+    links: { github: 'https://github.com/reventhTheCoder333/SpamScope' },
+  },
+  {
+    id: 'cnn-practice',
+    name: 'CNN Practice Project',
+    island: { name: 'Kernel Rock', theme: 'cnn', coords: '35°S · 18°E' },
+    accent: '#a0a8ff',
+    summary: 'Hands-on exploration of convolutional neural networks for image classification.',
+    description:
+      'A convolutional neural network project exploring deep learning architectures and image classification using Python and machine learning tools.',
+    tech: ['Python', 'CNNs', 'Deep Learning', 'Image Classification'],
+    highlights: [
+      'Explores convolutional neural network architectures.',
+      'Applies them to image classification in Python.',
+    ],
+    links: { github: 'https://github.com/reventhTheCoder333/CNNPracticeProject' },
   },
 ];

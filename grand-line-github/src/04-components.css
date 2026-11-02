@@ -1,0 +1,327 @@
+/* ==========================================================================
+   04 · COMPONENTS — buttons, boxes, tabs, labels, tooltips, menus
+   ========================================================================== */
+
+/* --- Buttons --------------------------------------------------------- */
+.btn,
+.Button,
+[data-component="Button"],
+[data-component="IconButton"],
+button[class*="prc-Button-ButtonBase"],
+a[class*="prc-Button-ButtonBase"] {
+  transition:
+    background-color var(--gl-fast) var(--gl-ease),
+    border-color var(--gl-fast) var(--gl-ease),
+    color var(--gl-fast) var(--gl-ease),
+    box-shadow var(--gl-fast) var(--gl-ease),
+    transform var(--gl-fast) var(--gl-ease) !important;
+}
+.btn:hover:not(:disabled),
+.Button--secondary:hover:not(:disabled),
+[data-component="Button"][data-variant="default"]:hover:not(:disabled) {
+  border-color: var(--gl-gold) !important;
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.1);
+}
+
+/* Primary: polished brass */
+.btn-primary,
+.Button--primary,
+[data-component="Button"][data-variant="primary"],
+[class*="prc-Button-ButtonBase"][data-variant="primary"] {
+  background: linear-gradient(180deg, #d2ad65, #a8803c) !important;
+  border-color: rgba(232, 214, 173, 0.35) !important;
+  color: #1a1206 !important;
+  text-shadow: 0 1px 0 rgba(255, 240, 210, 0.35);
+  box-shadow: 0 1px 0 rgba(255, 240, 210, 0.35) inset, 0 4px 14px -6px rgba(198, 161, 91, 0.6) !important;
+}
+.btn-primary:hover:not(:disabled),
+.Button--primary:hover:not(:disabled),
+[data-component="Button"][data-variant="primary"]:hover:not(:disabled) {
+  background: linear-gradient(180deg, #e0be78, #b88d45) !important;
+  transform: translateY(-1px);
+}
+.btn-primary .octicon,
+.Button--primary .octicon,
+[data-variant="primary"] .octicon {
+  color: #1a1206 !important;
+}
+
+/* Star / Fork / Watch: brass-rimmed instruments */
+[data-testid="star-button"],
+[data-testid="fork-button"],
+.starring-container .btn,
+.js-toggler-container .btn-sm,
+#repository-details-container .btn,
+#repository-details-container .Button {
+  border-color: var(--gl-rope-strong) !important;
+}
+[data-testid="star-button"]:hover .octicon,
+.starring-container .btn:hover .octicon-star,
+.starring-container .octicon-star-fill,
+.octicon-star-fill {
+  color: var(--gl-gold-bright) !important;
+  fill: var(--gl-gold-bright) !important;
+}
+
+/* --- Boxes & cards: charts in weathered frames ------------------------ */
+.Box,
+.border.rounded-2,
+.Box-row,
+[class*="prc-PageLayout-Pane"] .Box,
+.Popover-message {
+  border-color: var(--gl-rope) !important;
+}
+.Box:not(.Box--overlay):not(.SelectMenu-modal) {
+  background-color: rgba(11, 38, 56, 0.72);
+  border-radius: var(--gl-radius) !important;
+  box-shadow: var(--gl-shadow);
+}
+.Box-header {
+  background:
+    linear-gradient(180deg, rgba(198, 161, 91, 0.08), rgba(198, 161, 91, 0.02)) !important;
+  border-color: var(--gl-rope) !important;
+}
+.Box-row:hover,
+.Box-row--hover-gray:hover {
+  background-color: rgba(198, 161, 91, 0.04) !important;
+}
+
+/* --- Tabs (UnderlineNav, both Rails and React) ------------------------ */
+.UnderlineNav,
+[class*="prc-UnderlineNav-UnderlineWrapper"],
+[class*="prc-components-UnderlineWrapper"] {
+  box-shadow: inset 0 -1px 0 var(--gl-rope) !important;
+}
+.UnderlineNav-item,
+[class*="prc-UnderlineNav-UnderlineNavItem"] a,
+a[class*="prc-components-UnderlineItem"] {
+  color: var(--gl-beige) !important;
+  transition: color var(--gl-fast) var(--gl-ease) !important;
+}
+.UnderlineNav-item:hover,
+a[class*="prc-components-UnderlineItem"]:hover {
+  color: var(--gl-gold-bright) !important;
+}
+.UnderlineNav-item.selected,
+.UnderlineNav-item[aria-current]:not([aria-current="false"]),
+a[class*="prc-components-UnderlineItem"][aria-current]:not([aria-current="false"]) {
+  color: var(--gl-ivory) !important;
+  font-weight: 600;
+}
+.UnderlineNav-item.selected::after,
+.UnderlineNav-item[aria-current]:not([aria-current="false"])::after,
+a[class*="prc-components-UnderlineItem"][aria-current]:not([aria-current="false"])::after {
+  background: linear-gradient(90deg, var(--gl-tide), var(--gl-gold), var(--gl-sunset)) !important;
+  height: 2px !important;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(198, 161, 91, 0.5);
+}
+.UnderlineNav-item.selected .octicon,
+a[class*="prc-components-UnderlineItem"][aria-current="page"] svg {
+  color: var(--gl-gold) !important;
+}
+
+/* --- Counters & labels ------------------------------------------------ */
+.Counter,
+[class*="prc-CounterLabel-CounterLabel"] {
+  background: rgba(198, 161, 91, 0.16) !important;
+  color: var(--gl-parchment) !important;
+  border: 0 !important;
+}
+.Label,
+[class*="prc-Label-Label"] {
+  border-color: var(--gl-rope-strong);
+}
+.Label--secondary {
+  color: var(--gl-beige) !important;
+}
+/* "Public" / "Private" visibility badges read like map stamps */
+[data-testid="repo-visibility-label"],
+.Label--secondary.v-align-middle {
+  font-family: var(--gl-font-display);
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+/* Topic tags: small gold-rimmed pennants */
+.topic-tag,
+a.topic-tag-link {
+  background: rgba(27, 101, 112, 0.25) !important;
+  color: #a6dcd4 !important;
+  border: 1px solid rgba(79, 179, 176, 0.3) !important;
+  transition: background var(--gl-fast), border-color var(--gl-fast) !important;
+}
+.topic-tag:hover {
+  background: rgba(198, 161, 91, 0.16) !important;
+  border-color: var(--gl-gold) !important;
+  color: var(--gl-gold-bright) !important;
+}
+
+/* --- Tooltips: little parchment slips --------------------------------- */
+tool-tip,
+[class*="prc-TooltipV2-Tooltip"],
+.tooltipped::after {
+  background: var(--gl-parchment) !important;
+  color: var(--gl-ink) !important;
+  border: 1px solid #b89a5f !important;
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.8) !important;
+  font-weight: 500;
+}
+.tooltipped::before {
+  border-top-color: transparent;
+}
+.tooltipped-n::before,
+.tooltipped-ne::before,
+.tooltipped-nw::before {
+  border-top-color: var(--gl-parchment) !important;
+}
+.tooltipped-s::before,
+.tooltipped-se::before,
+.tooltipped-sw::before {
+  border-bottom-color: var(--gl-parchment) !important;
+}
+
+/* --- Menus & overlays: unrolled parchment ----------------------------
+   Inside these surfaces the Primer tokens are re-scoped to ink-on-paper, so
+   every nested component (lists, inputs, dividers) follows automatically. */
+.SelectMenu-modal,
+.dropdown-menu,
+details-menu.dropdown-menu,
+.Overlay:not(.Overlay--size-full),
+[class*="prc-Overlay-Overlay"],
+[class*="prc-ActionMenu-ActionMenuContainer"],
+.Popover-message,
+anchored-position:not(tool-tip) > .Overlay,
+.autocomplete-results {
+  --fgColor-default: var(--gl-ink);
+  --fgColor-muted: var(--gl-ink-muted);
+  --fgColor-link: #1a5a63;
+  --fgColor-accent: #1a5a63;
+  --fgColor-attention: #7a5a16;
+  --fgColor-success: #1f6b52;
+  --fgColor-danger: #9b3328;
+  --fgColor-done: #7a5a16;
+  --fgColor-disabled: #8d7d60;
+  --bgColor-default: var(--gl-parchment);
+  --bgColor-muted: #dfc99b;
+  --bgColor-inset: #d9c190;
+  --bgColor-accent-muted: rgba(27, 101, 112, 0.14);
+  --bgColor-neutral-muted: rgba(43, 29, 14, 0.07);
+  --borderColor-default: rgba(92, 64, 24, 0.3);
+  --borderColor-muted: rgba(92, 64, 24, 0.16);
+  --overlay-bgColor: var(--gl-parchment);
+  --control-bgColor-rest: #f3e7c9;
+  --control-bgColor-hover: #f3e7c9;
+  --control-fgColor-rest: var(--gl-ink);
+  --control-fgColor-placeholder: #8d7d60;
+  --control-borderColor-rest: rgba(92, 64, 24, 0.35);
+  --control-iconColor-rest: var(--gl-ink-muted);
+  --control-transparent-bgColor-hover: rgba(92, 64, 24, 0.09);
+  --control-transparent-bgColor-active: rgba(92, 64, 24, 0.14);
+  --control-transparent-bgColor-selected: rgba(92, 64, 24, 0.12);
+  --button-default-bgColor-rest: #f3e7c9;
+  --button-default-bgColor-hover: #efdfb9;
+  --button-default-fgColor-rest: var(--gl-ink);
+  --button-default-borderColor-rest: rgba(92, 64, 24, 0.3);
+  --button-invisible-fgColor-rest: var(--gl-ink);
+  --button-invisible-iconColor-rest: var(--gl-ink-muted);
+  --button-invisible-bgColor-hover: rgba(92, 64, 24, 0.09);
+  --counter-bgColor-muted: rgba(92, 64, 24, 0.12);
+  --label-gray-fgColor-rest: var(--gl-ink-muted);
+  color: var(--gl-ink);
+  background-color: var(--gl-parchment) !important;
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 248, 228, 0.55), transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(150, 110, 50, 0.16), transparent 60%) !important;
+  border: 1px solid #b89a5f !important;
+  box-shadow: 0 0 0 1px rgba(7, 27, 43, 0.6), 0 18px 40px -10px rgba(1, 8, 14, 0.85) !important;
+}
+/* Inside the parchment, headers and dividers use ink */
+.SelectMenu-modal .SelectMenu-header,
+.SelectMenu-modal .SelectMenu-filter,
+.dropdown-menu .dropdown-header {
+  background: transparent !important;
+  border-color: rgba(92, 64, 24, 0.2) !important;
+}
+.SelectMenu-modal .SelectMenu-title,
+.dropdown-menu .dropdown-header {
+  font-family: var(--gl-font-display);
+  color: var(--gl-ink) !important;
+}
+.dropdown-item,
+.SelectMenu-item {
+  color: var(--gl-ink) !important;
+  background: transparent !important;
+  border-color: rgba(92, 64, 24, 0.12) !important;
+}
+.dropdown-item:hover,
+.dropdown-item:focus,
+.SelectMenu-item:hover,
+.SelectMenu-item:focus,
+.SelectMenu-item[aria-checked="true"] {
+  background: rgba(27, 101, 112, 0.14) !important;
+  color: #0e3d44 !important;
+}
+.dropdown-divider,
+.SelectMenu-divider {
+  border-color: rgba(92, 64, 24, 0.2) !important;
+  background: rgba(92, 64, 24, 0.06) !important;
+  color: var(--gl-ink-muted) !important;
+}
+.dropdown-menu::before { border-bottom-color: #b89a5f !important; }
+.dropdown-menu::after { border-bottom-color: var(--gl-parchment) !important; }
+
+/* Primer React ActionList items inside overlays */
+[class*="prc-Overlay-Overlay"] li[role="menuitem"]:hover,
+[class*="prc-Overlay-Overlay"] li[role="option"]:hover,
+[class*="prc-Overlay-Overlay"] [class*="prc-ActionList-ActionListContent"]:hover {
+  background: rgba(27, 101, 112, 0.12) !important;
+}
+
+/* Full-screen overlays (command palette, file finder) stay dark for code */
+.Overlay--size-full {
+  background: var(--gl-deep) !important;
+}
+
+/* --- Form inputs ------------------------------------------------------ */
+.form-control,
+.FormControl-input,
+.FormControl-select,
+.FormControl-textarea,
+[class*="prc-components-TextInputWrapper"],
+[class*="prc-TextInputWrapper"],
+[class*="prc-Textarea-TextArea"] {
+  transition: border-color var(--gl-fast), box-shadow var(--gl-fast) !important;
+}
+.form-control:focus,
+.FormControl-input:focus,
+.FormControl-textarea:focus,
+[class*="prc-components-TextInputWrapper"]:focus-within,
+[class*="prc-TextInputWrapper"]:focus-within {
+  border-color: var(--gl-gold) !important;
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.18) !important;
+}
+
+/* --- Flash banners ---------------------------------------------------- */
+.flash,
+.flash-full {
+  border-color: var(--gl-rope-strong) !important;
+}
+
+/* --- Avatars: a fine brass rim --------------------------------------- */
+.avatar,
+.avatar-user,
+img[data-component="Avatar"] {
+  box-shadow: 0 0 0 1px var(--gl-rope);
+}
+
+/* --- Footer: the horizon ---------------------------------------------- */
+footer.footer,
+.footer {
+  border-top: 1px solid var(--gl-rope) !important;
+  background: linear-gradient(180deg, transparent, rgba(4, 18, 30, 0.6)) !important;
+}
+footer .octicon-mark-github,
+.footer .octicon-mark-github {
+  color: var(--gl-gold) !important;
+}

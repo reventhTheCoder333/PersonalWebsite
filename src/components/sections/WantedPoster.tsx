@@ -70,7 +70,7 @@ export function WantedPoster() {
 
         {/* Ink stamp */}
         <span
-          className="absolute right-3 top-[24%] rotate-[12deg] rounded border-2 border-ember/80 bg-[#efe0bd]/70 px-2 py-1 font-display text-[10px] font-extrabold uppercase tracking-[0.2em] text-ember/90"
+          className="absolute right-3 top-[54%] rotate-[-8deg] rounded border-2 border-ember/80 bg-[#efe0bd]/70 px-2 py-1 font-display text-[10px] font-extrabold uppercase tracking-[0.2em] text-ember/90"
           aria-hidden
         >
           Dean's List · Fall 2025

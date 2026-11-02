@@ -97,9 +97,11 @@ export function ProjectDialog({ project, onClose, onPrev, onNext }: ProjectDialo
         </div>
 
         <m.div key={`${project.id}-body`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="px-6 pb-8 sm:px-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em]" style={{ color: project.accent }}>
-            {project.period} · {project.status}
-          </p>
+          {(project.period || project.status) && (
+            <p className="text-xs font-semibold uppercase tracking-[0.25em]" style={{ color: project.accent }}>
+              {[project.period, project.status].filter(Boolean).join(' · ')}
+            </p>
+          )}
           <h3 id="project-dialog-title" className="mt-2 font-display text-3xl font-bold text-parchment sm:text-4xl">
             {project.name}
           </h3>

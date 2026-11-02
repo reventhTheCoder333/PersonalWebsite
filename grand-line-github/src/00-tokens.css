@@ -1,0 +1,41 @@
+/* ==========================================================================
+   00 · TOKENS — The Grand Line design language
+   --------------------------------------------------------------------------
+   Core colours (--gl-ocean … --gl-sunset) are exposed as Stylus @vars in the
+   userstyle header, so they can be retuned from the Stylus UI. Everything
+   below is derived from them; edit the core values, not these.
+   ========================================================================== */
+
+:root {
+  /* Seas — surfaces from deepest to most raised */
+  --gl-abyss: #04121e;
+  --gl-reef: #0f3044;
+  --gl-shoal: #143a50;
+
+  /* Accents */
+  --gl-tide-bright: #4fb3b0;      /* links & focus: 7:1 on ocean */
+  --gl-gold-bright: #e0be78;
+  --gl-parchment-deep: #d4bb87;
+  --gl-ink: #2b1d0e;              /* text on parchment */
+  --gl-ink-muted: #5c4a30;
+  --gl-ivory: #efe6d2;            /* primary text */
+  --gl-beige: #b8ac92;            /* secondary text: 8:1 on ocean */
+  --gl-kelp: #57b894;             /* open / success */
+  --gl-crimson: #d0645a;          /* closed / danger */
+
+  /* Lines */
+  --gl-rope: rgba(198, 161, 91, 0.22);
+  --gl-rope-strong: rgba(198, 161, 91, 0.45);
+  --gl-hairline: rgba(232, 214, 173, 0.08);
+
+  /* Typography — GitHub's CSP blocks web fonts, so these are system serifs */
+  --gl-font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+    "URW Palladio L", Georgia, serif;
+
+  /* Depth */
+  --gl-glow-gold: 0 0 0 1px rgba(198, 161, 91, 0.35), 0 6px 22px -8px rgba(198, 161, 91, 0.35);
+  --gl-shadow: 0 1px 0 rgba(232, 214, 173, 0.04) inset, 0 10px 30px -18px rgba(0, 0, 0, 0.9);
+  --gl-radius: 8px;
+  --gl-ease: cubic-bezier(0.22, 0.8, 0.3, 1);
+  --gl-fast: 160ms;
+}

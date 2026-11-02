@@ -1,0 +1,231 @@
+/* ==========================================================================
+   05 · PROFILE — the captain's wanted poster
+   Scoped to body.page-profile so nothing leaks into other pages.
+   ========================================================================== */
+
+/* --- Grand Line banner above the profile ------------------------------- */
+.page-profile .application-main > main {
+  position: relative;
+}
+.page-profile .application-main > main::before {
+  content: "";
+  display: block;
+  height: 168px;
+  background:
+    linear-gradient(180deg, transparent 55%, var(--gl-ocean) 100%),
+    url(svg:horizon) center bottom / cover no-repeat;
+  border-bottom: 1px solid var(--gl-rope);
+  animation: gl-swell 18s ease-in-out infinite alternate;
+}
+/* Banner caption, centred on the horizon */
+.page-profile .application-main > main::after {
+  content: "THE GRAND LINE  ·  CAPTAIN'S QUARTERS";
+  position: absolute;
+  top: 26px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--gl-font-display);
+  font-size: 13px;
+  letter-spacing: 0.42em;
+  color: rgba(232, 214, 173, 0.72);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+@keyframes gl-swell {
+  from { background-position: center bottom, 48% bottom; }
+  to { background-position: center bottom, 52% bottom; }
+}
+
+/* The profile tabs sit just under the banner */
+.page-profile .UnderlineNav {
+  background: rgba(7, 27, 43, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+/* --- Wanted poster (desktop / tablet widths) --------------------------- */
+@media (min-width: 768px) {
+  .page-profile .Layout-sidebar {
+    position: relative;
+    z-index: 1;
+  }
+  .page-profile a[itemprop="image"] {
+    position: relative;
+    display: block;
+    margin-top: -96px;
+    padding: 42px 16px 44px;
+    background:
+      radial-gradient(ellipse at 30% 10%, rgba(255, 248, 228, 0.7), transparent 55%),
+      radial-gradient(ellipse at 90% 95%, rgba(140, 98, 40, 0.28), transparent 55%),
+      radial-gradient(circle at 8% 92%, rgba(120, 80, 30, 0.22), transparent 18%),
+      var(--gl-parchment);
+    border-radius: 3px;
+    box-shadow:
+      0 0 0 1px #b89a5f,
+      0 0 0 5px rgba(232, 214, 173, 0.08),
+      0 24px 50px -18px rgba(0, 0, 0, 0.95);
+    transform: rotate(-0.6deg);
+    transition: transform 500ms var(--gl-ease), box-shadow 500ms var(--gl-ease);
+  }
+  .page-profile a[itemprop="image"]:hover {
+    transform: rotate(0deg) translateY(-2px);
+    box-shadow:
+      0 0 0 1px #c6a15b,
+      0 0 0 5px rgba(198, 161, 91, 0.16),
+      0 30px 60px -18px rgba(0, 0, 0, 0.95);
+  }
+  .page-profile a[itemprop="image"]::before {
+    content: "WANTED";
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: var(--gl-font-display);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    color: #3a2810;
+  }
+  .page-profile a[itemprop="image"]::after {
+    content: "—  DEAD OR ALIVE  —";
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: var(--gl-font-display);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: #5c4a30;
+  }
+  .page-profile a[itemprop="image"] img.avatar {
+    border-radius: 2px !important;
+    border: 1px solid #8d6f3b !important;
+    box-shadow: 0 0 0 4px rgba(92, 64, 24, 0.08) !important;
+    filter: sepia(0.18) contrast(1.04) saturate(0.95);
+    background: #d9c190 !important;
+  }
+  /* The "set status" pill floats on the poster: keep it legible */
+  .page-profile .user-status-container,
+  .page-profile .user-status-circle-badge-container {
+    z-index: 2;
+  }
+}
+
+/* --- Name block: the captain's title ----------------------------------- */
+.page-profile .vcard-names {
+  padding-top: 12px;
+}
+.page-profile .vcard-fullname {
+  font-size: 26px !important;
+  font-weight: 600 !important;
+  color: var(--gl-parchment) !important;
+  line-height: 1.2 !important;
+}
+.page-profile .vcard-username {
+  color: var(--gl-gold) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em;
+}
+.page-profile .vcard-username::before {
+  content: "Captain  ·  ";
+  font-family: var(--gl-font-display);
+  font-style: italic;
+  color: var(--gl-beige);
+}
+.page-profile .user-profile-bio {
+  font-family: var(--gl-font-display);
+  font-style: italic;
+  color: var(--gl-ivory) !important;
+  border-left: 2px solid var(--gl-gold);
+  padding-left: 10px;
+}
+.page-profile .vcard-details .octicon,
+.page-profile .js-profile-editable-area .octicon {
+  color: var(--gl-gold) !important;
+}
+.page-profile .js-profile-editable-area .btn-block {
+  border-color: var(--gl-rope-strong) !important;
+}
+
+/* Achievements: brass medallions */
+.page-profile .achievement-badge-sidebar {
+  filter: sepia(0.25) saturate(1.1);
+  transition: transform var(--gl-fast) var(--gl-ease), filter var(--gl-fast);
+}
+.page-profile .achievement-badge-sidebar:hover {
+  transform: translateY(-2px) rotate(-4deg);
+  filter: none;
+}
+
+/* Profile README card */
+.page-profile article.markdown-body,
+.page-profile .Box:has(> div > article.markdown-body) {
+  border-color: var(--gl-rope-strong) !important;
+}
+
+/* --- Pinned repositories: islands on the chart ------------------------- */
+.pinned-item-list-item .Box,
+.pinned-item-list-item > div {
+  position: relative;
+  overflow: hidden;
+  background:
+    url(svg:island) right 10px bottom 8px / 96px auto no-repeat,
+    linear-gradient(160deg, rgba(27, 101, 112, 0.16), rgba(11, 38, 56, 0.8) 60%) !important;
+  border: 1px solid var(--gl-rope) !important;
+  border-radius: var(--gl-radius) !important;
+  transition:
+    transform 260ms var(--gl-ease),
+    border-color 260ms var(--gl-ease),
+    box-shadow 260ms var(--gl-ease) !important;
+}
+.pinned-item-list-item .Box:hover,
+.pinned-item-list-item > div:hover {
+  transform: translateY(-3px);
+  border-color: var(--gl-gold) !important;
+  box-shadow: var(--gl-glow-gold) !important;
+}
+.pinned-item-list-item .repo {
+  font-family: var(--gl-font-display);
+  font-size: 15px;
+  color: var(--gl-parchment);
+  letter-spacing: 0.01em;
+}
+.pinned-item-list-item a:hover .repo {
+  color: var(--gl-gold-bright);
+}
+.pinned-item-list-item .octicon-repo,
+.pinned-item-list-item .octicon-repo-forked {
+  color: var(--gl-gold) !important;
+}
+
+/* Section headings on the profile ("Pinned", "Popular repositories") */
+.page-profile h2.f4.mb-2,
+.page-profile .js-pinned-items-reorder-container h2 {
+  color: var(--gl-parchment);
+}
+.page-profile .js-pinned-items-reorder-container h2::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: -2px;
+  background: url(svg:compass) center / contain no-repeat;
+}
+
+/* --- Repositories tab list ---------------------------------------------- */
+#user-repositories-list li,
+.page-profile #org-repositories li {
+  position: relative;
+  transition: background-color var(--gl-fast);
+}
+#user-repositories-list li:hover {
+  background: linear-gradient(90deg, rgba(198, 161, 91, 0.05), transparent 70%);
+}
+#user-repositories-list h3 a {
+  font-family: var(--gl-font-display);
+  font-size: 19px;
+}

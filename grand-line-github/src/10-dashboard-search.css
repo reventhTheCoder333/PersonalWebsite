@@ -1,0 +1,107 @@
+/* ==========================================================================
+   10 · DASHBOARD & SEARCH — the harbour and the spyglass
+   ========================================================================== */
+
+/* --- Signed-in home (dashboard) ---------------------------------------- */
+.dashboard-sidebar,
+aside.feed-left-sidebar,
+.feed-left-sidebar {
+  background: linear-gradient(180deg, rgba(4, 18, 30, 0.6), rgba(7, 27, 43, 0.2)) !important;
+  border-right: 1px solid var(--gl-rope) !important;
+}
+.dashboard-sidebar h2,
+.feed-left-sidebar h2,
+.dashboard h2,
+#dashboard h2 {
+  font-family: var(--gl-font-display);
+  color: var(--gl-parchment) !important;
+  letter-spacing: 0.02em;
+}
+/* "Top repositories" list reads like a harbour roster */
+.dashboard-sidebar .list-style-none li a,
+.feed-left-sidebar li a {
+  transition: color var(--gl-fast);
+}
+.dashboard-sidebar .list-style-none li a:hover,
+.feed-left-sidebar li a:hover {
+  color: var(--gl-gold-bright) !important;
+}
+/* Feed cards */
+#dashboard .Box,
+.feed-item-content,
+[data-testid="feed-item"],
+article[class*="FeedItem"] {
+  border-color: var(--gl-rope) !important;
+  border-radius: var(--gl-radius) !important;
+}
+#dashboard .Box:hover,
+article[class*="FeedItem"]:hover {
+  border-color: var(--gl-rope-strong) !important;
+}
+
+/* --- Search ------------------------------------------------------------- */
+/* Search results page (React) */
+[data-testid="results-list"] > div,
+[data-testid="results-list"] > div > div {
+  border-color: var(--gl-rope) !important;
+}
+[data-testid="results-list"] > div:hover {
+  background: linear-gradient(90deg, rgba(198, 161, 91, 0.05), transparent 70%) !important;
+}
+[data-testid="results-list"] .search-title a,
+[data-testid="results-list"] h3 a {
+  color: var(--gl-ivory) !important;
+  font-weight: 600;
+}
+[data-testid="results-list"] .search-title a:hover,
+[data-testid="results-list"] h3 a:hover {
+  color: var(--gl-gold-bright) !important;
+}
+/* Matched terms in results */
+[data-testid="results-list"] em,
+.search-match,
+.search-results em {
+  font-style: normal;
+  color: var(--gl-gold-bright);
+  background: rgba(198, 161, 91, 0.16);
+  border-radius: 2px;
+}
+
+/* Search box & query builder overlay (signed in) */
+qbsearch-input .QueryBuilder-InputWrapper,
+.search-input-container,
+#query-builder-test {
+  background: var(--gl-ocean) !important;
+  border-color: var(--gl-gold) !important;
+}
+qbsearch-input .Overlay,
+.search-suggestions {
+  background: var(--gl-deep) !important;
+  border: 1px solid var(--gl-rope-strong) !important;
+}
+.ActionListItem.is-active,
+qbsearch-input .ActionListItem:hover {
+  background: rgba(198, 161, 91, 0.1) !important;
+}
+
+/* Search filter sidebar */
+[data-testid="search-sub-header"],
+nav[aria-label="Filter by"] a[aria-current="page"] {
+  background: rgba(198, 161, 91, 0.1) !important;
+}
+
+/* --- Explore / topics / marketplace minimal touch --------------------- */
+.color-bg-subtle,
+.color-bg-muted {
+  background-color: rgba(11, 38, 56, 0.7) !important;
+}
+
+/* --- Pagination ---------------------------------------------------------- */
+.pagination a:hover,
+.pagination .current,
+.pagination em.current,
+[class*="prc-Pagination"] [aria-current="page"] {
+  background: linear-gradient(180deg, #d2ad65, #a8803c) !important;
+  border-color: rgba(232, 214, 173, 0.3) !important;
+  color: #1a1206 !important;
+}

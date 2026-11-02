@@ -1,0 +1,116 @@
+/* ==========================================================================
+   08 · CODE — the Poneglyphs
+   Readability first: dark navy stone, warm ivory text, gold line numbers,
+   turquoise selection. Syntax colours live in 01 (--color-prettylights-*).
+   Only colour and background are changed — never font metrics — because the
+   React code view overlays an invisible textarea that must line up exactly.
+   ========================================================================== */
+
+/* Blob view (React) and classic blob tables */
+.react-code-view-edit,
+.react-blob-print-hide + div,
+[data-testid="code-view"],
+.react-code-lines,
+.react-code-file-contents,
+#highlighted-line-menu-positioner,
+.blob-wrapper,
+.blob-wrapper table,
+.highlight.tab-size,
+.js-file-line-container {
+  background-color: var(--gl-abyss) !important;
+}
+.react-code-file-contents,
+.blob-wrapper {
+  background-image: url(svg:poneglyph) !important;
+  background-size: 96px 96px !important;
+  background-position: right top !important;
+}
+.react-code-text,
+.react-file-line,
+.blob-code,
+.blob-code-inner {
+  color: var(--gl-ivory);
+}
+
+/* Gold line numbers */
+.react-line-number,
+.react-line-numbers .react-line-number,
+.blob-num,
+.blob-num-context,
+td.blob-num::before {
+  color: rgba(198, 161, 91, 0.55) !important;
+}
+.react-line-number:hover,
+.blob-num:hover {
+  color: var(--gl-gold-bright) !important;
+}
+.react-line-numbers,
+[data-testid="react-line-numbers"] {
+  border-right: 1px solid rgba(198, 161, 91, 0.12);
+  background: rgba(7, 27, 43, 0.6) !important;
+}
+
+/* Highlighted lines (#L10-L20 in the URL): a gold lantern glow */
+.react-code-line-highlighted,
+.highlighted-line,
+.blob-code.highlighted,
+.blob-num.highlighted,
+.blob-code .highlighted,
+tr.selected-line td,
+.selected-line {
+  background-color: rgba(198, 161, 91, 0.14) !important;
+  box-shadow: inset 2px 0 0 var(--gl-gold);
+}
+
+/* Selection inside the read-only code textarea */
+#read-only-cursor-text-area::selection,
+.react-code-text ::selection,
+.blob-code-inner::selection,
+.blob-code-inner *::selection {
+  background: rgba(79, 179, 176, 0.38) !important;
+}
+
+/* File header bar above code */
+.react-blob-header,
+[data-testid="blob-viewer-file-header"],
+.file-header,
+.Box-header.js-blob-header {
+  background: linear-gradient(90deg, rgba(198, 161, 91, 0.1), rgba(27, 101, 112, 0.08)) !important;
+  border-color: var(--gl-rope) !important;
+}
+.file-header .file-info a,
+[data-testid="breadcrumbs-filename"] {
+  color: var(--gl-parchment) !important;
+  font-weight: 600;
+}
+
+/* Search-in-file match highlights stay high contrast */
+.react-code-text .find-match,
+.blob-code .highlighted-match,
+mark {
+  background: rgba(217, 121, 65, 0.45) !important;
+  color: #fff7ea !important;
+  border-radius: 2px;
+}
+
+/* --- Diffs (PR files, commits, compare) -------------------------------- */
+.file,
+.js-diff-progressive-container .file,
+[data-testid="diff-file"] {
+  border-color: var(--gl-rope) !important;
+  border-radius: var(--gl-radius) !important;
+}
+.blob-code-hunk,
+.blob-num-hunk {
+  font-style: italic;
+}
+.blob-expanded .blob-code,
+.blob-expanded .blob-num {
+  background: rgba(11, 38, 56, 0.85) !important;
+}
+
+/* Inline snippets / permalinks in comments */
+.blob-wrapper-embedded,
+.markdown-body .Box--condensed .blob-wrapper {
+  background: var(--gl-abyss) !important;
+}
