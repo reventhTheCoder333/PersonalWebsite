@@ -47,7 +47,10 @@ export const projects: Project[] = [
       'Guided tasks.',
       'Personalized fairytale experiences.',
     ],
-    links: { github: 'https://github.com/reventhTheCoder333/Lumi' },
+    links: {
+      github: 'https://github.com/reventhTheCoder333/Lumi',
+      demo: 'https://www.youtube.com/watch?v=OhPfyMSOIls',
+    },
   },
   {
     id: 'neural-decoder',
